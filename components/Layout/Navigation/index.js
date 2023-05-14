@@ -1,14 +1,12 @@
 import React from 'react';
-import Logo from './Logo';
+import Logo from '../Logo';
 import Link from 'next/link';
-
+import css from './Navigation.module.css';
 function Navigation() {
     return (
-        <header>
+        <header className={css.header}>
             <Link href='/'>
-                <a>
-                    <Logo />
-                </a>
+                <Logo />
             </Link>
             <nav>
                 <ul>
