@@ -9,7 +9,7 @@ function PostItem({ post }) {
         month: 'long',
         year: 'numeric',
     });
-    const imagePath = `/images/posts/${post.image}`;
+    const imagePath = `/images/posts/${post.slug}/${post.image}`;
     return (
         <li className={css.post}>
             <Link href={`/posts/${post.slug}`}>
