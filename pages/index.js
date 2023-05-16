@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '../components/HomePage/Hero';
 import FeaturedPosts from '../components/HomePage/FeaturedPosts';
-
+import { getFeaturedPosts } from '../utils/posts';
 const DUMMY_POSTS = [
     {
         slug: 'getting-started-with-nextjs',
@@ -13,13 +13,21 @@ const DUMMY_POSTS = [
     },
 ];
 
-function HomePage() {
+function HomePage({ posts }) {
     return (
         <>
             <Hero />
-            <FeaturedPosts posts={DUMMY_POSTS} />
+            <FeaturedPosts posts={posts} />
         </>
     );
 }
 
 export default HomePage;
+
+export function getStaticProps(context) {
+    const featuredPosts = getFeaturedPosts();
+    return {
+        props: { posts: featuredPosts },
+        revalidate: 1800,
+    };
+}

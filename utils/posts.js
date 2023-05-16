@@ -22,6 +22,7 @@ export function getAllPosts() {
     const postFiles = fs.readdirSync(postsDirectory);
     const allPostData = postFiles.map((postFile) => getPostData(postFile));
     allPostData.sort((postA, postB) => (postA.date > postB.date ? -1 : 1));
+    return allPostData;
 }
 
 export function getFeaturedPosts() {
